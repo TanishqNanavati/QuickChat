@@ -8,8 +8,14 @@ import { connectDB } from './lib/db.js';
 import userRouter from './routes/user.route.js';
 import messageRouter from './routes/message.route.js';
 import { Server } from 'socket.io';
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 const PORT = process.env.PORT || 5000;
 
