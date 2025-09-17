@@ -61,11 +61,5 @@ await connectDB();
 
 server.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`);
-    console.log("Cloud name:", process.env.CLOUDINARY_CLOUD_NAME);
-    console.log("API key:", process.env.CLOUDINARY_API_KEY);
-    console.log("API secret:", process.env.CLOUDINARY_API_SECRET);
-
-    console.log(process.env.MONGODB_URI);
-    console.log(process.env.JWT_SECRET_KEY);
 
 })
