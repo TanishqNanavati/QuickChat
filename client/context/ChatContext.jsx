@@ -2,20 +2,18 @@ import { createContext, useContext, useEffect, useState } from "react";
 import {AuthContext} from "./AuthContext";
 import toast from "react-hot-toast";
 
-
 export const ChatContext = createContext();
-const backendUrl = import.meta.env.VITE_BACKEND_URL ;
-axios.defaults.baseURL = backendUrl;
-console.log(backendUrl);
 
 export const ChatProvider = ({children})=>{
-
+    
     const [messages,setMessages] = useState([]);
     const [users,setUsers] = useState([]);
     const [selectedUser,setSelectedUser] = useState(null);
     const [unSeenMessages,setUnseenMessages] = useState({}); // user id and no of messages {key,value} pair
-
+    
     const {socket,axios} = useContext(AuthContext);
+    const backendUrl = import.meta.env.VITE_BACKEND_URL ;
+    axios.defaults.baseURL = backendUrl;
 
     // function to get users from sidebar
 
