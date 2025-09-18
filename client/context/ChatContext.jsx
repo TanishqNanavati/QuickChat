@@ -4,6 +4,9 @@ import toast from "react-hot-toast";
 
 
 export const ChatContext = createContext();
+const backendUrl = import.meta.env.VITE_BACKEND_URL ;
+axios.defaults.baseURL = backendUrl;
+console.log(backendUrl);
 
 export const ChatProvider = ({children})=>{
 
